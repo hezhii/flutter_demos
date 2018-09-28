@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Navigation',
-      home: new FirstScreen(),
+      home: new ArticleListScreen(),
     );
   }
 }
