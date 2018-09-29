@@ -29,11 +29,22 @@ class ArticleListScreen extends StatelessWidget {
             title: new Text(articles[index].title),
             onTap: () async {
               String result = await Navigator.push(
-                context,
-                new MaterialPageRoute(
-                  builder: (context) => new ContentScreen(articles[index]),
-                ),
-              );
+                  context,
+                  new PageRouteBuilder(
+                    transitionDuration: const Duration(milliseconds: 1000),
+                    pageBuilder: (context, _, __) =>
+                        new ContentScreen(articles[index]),
+                    transitionsBuilder:
+                        (_, Animation<double> animation, __, Widget child) =>
+                            new FadeTransition(
+                              opacity: animation,
+                              child: new RotationTransition(
+                                turns: new Tween<double>(begin: 0.0, end: 1.0)
+                                    .animate(animation),
+                                child: child,
+                              ),
+                            ),
+                  ));
 
               if (result != null) {
                 Scaffold.of(context).showSnackBar(
