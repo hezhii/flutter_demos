@@ -9,7 +9,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Navigation',
-      home: new ArticleListScreen(),
+      initialRoute: '/',
+      onGenerateRoute: (RouteSettings settings) {
+        WidgetBuilder builder;
+        if (settings.name == '/') {
+          builder = (BuildContext context) => new ArticleListScreen();
+        } else {
+          String param = settings.name.split('/')[2];
+          builder = (BuildContext context) => new NewArticle(param);
+        }
+
+        return new MaterialPageRoute(builder: builder, settings: settings);
+      },
     );
   }
 }

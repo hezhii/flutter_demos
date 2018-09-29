@@ -21,6 +21,15 @@ class ArticleListScreen extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Article List'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            color: Colors.white,
+            onPressed: () {
+              Navigator.of(context).pushNamed('/new/xxx');
+            },
+          )
+        ],
       ),
       body: new ListView.builder(
         itemCount: articles.length,
@@ -97,6 +106,24 @@ class ContentScreen extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class NewArticle extends StatelessWidget {
+  final String param;
+
+  NewArticle(this.param);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('New article'),
+      ),
+      body: new Center(
+        child: new Text('$param'),
       ),
     );
   }
