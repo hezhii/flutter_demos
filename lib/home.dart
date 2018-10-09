@@ -1,46 +1,57 @@
 import 'package:flutter/material.dart';
 
-import './home_navigator.dart';
-import './profile.dart';
-
-class Home extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return new _HomeState();
-  }
-}
-
-class _HomeState extends State<Home> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [
-    new HomeNavigator(),
-    new Profile(),
-  ];
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _children[_currentIndex],
-      bottomNavigationBar: new BottomNavigationBar(
-        onTap: onTabTapped,
-        currentIndex: _currentIndex,
-        items: [
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.person),
-            title: new Text('Profile'),
-          ),
-        ],
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Home'),
+      ),
+      body: new Container(
+        decoration: new BoxDecoration(
+          color: Colors.grey[200],
+        ),
+        child: new GridView.count(
+          crossAxisCount: 3,
+          mainAxisSpacing: 1.0,
+          crossAxisSpacing: 1.0,
+          children: demos.map((Demo demo) {
+            return _getWidget(demo, context);
+          }).toList(),
+        ),
       ),
     );
   }
 
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+  Widget _getWidget(Demo demo, BuildContext context) {
+    return new GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, demo.path);
+      },
+      child: new Container(
+        decoration: new BoxDecoration(
+          color: Colors.white,
+        ),
+        alignment: Alignment.center,
+        child: new Text(
+          demo.name,
+          style: new TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
   }
 }
+
+class Demo {
+  final String name;
+  final String path;
+
+  const Demo(this.name, this.path);
+}
+
+const List<Demo> demos = const <Demo>[
+  const Demo('Navigation', '/navigation'),
+];
