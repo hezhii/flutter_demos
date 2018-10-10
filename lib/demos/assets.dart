@@ -9,7 +9,18 @@ class Assets extends StatelessWidget {
       appBar: new AppBar(
         title: new Text('Assets'),
       ),
-      body: new JsonView(),
+      body: new Column(
+        children: <Widget>[
+          new Image.asset("assets/images/wechat.png"),
+          new Image(
+            image: new AssetImage("assets/images/wechat.png"),
+          ),
+          new Container(
+            height: 300.0, // must
+            child: new JsonView(),
+          )
+        ],
+      ),
     );
   }
 }
