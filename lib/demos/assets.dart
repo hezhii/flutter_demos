@@ -15,6 +15,40 @@ class Assets extends StatelessWidget {
           new Image(
             image: new AssetImage("assets/images/wechat.png"),
           ),
+          new Text(
+            "A red flair silhouetted the jagged edge of a wing.",
+            style: new TextStyle(
+              fontFamily: "Charmonman",
+              fontSize: 17.0,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          new Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Text(
+                "\u{e7d7}",
+                style: new TextStyle(
+                  fontFamily: "Iconfont",
+                  fontSize: 36.0,
+                ),
+              ),
+              new Text(
+                "\u{e7d9}",
+                style: new TextStyle(
+                  fontFamily: "Iconfont",
+                  fontSize: 36.0,
+                ),
+              ),
+              new Text(
+                "\u{e7df}",
+                style: new TextStyle(
+                  fontFamily: "Iconfont",
+                  fontSize: 36.0,
+                ),
+              ),
+            ],
+          ),
           new Container(
             height: 300.0, // must
             child: new JsonView(),
