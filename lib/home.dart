@@ -54,4 +54,5 @@ class Demo {
 
 const List<Demo> demos = const <Demo>[
   const Demo('Navigation', '/navigation'),
+  const Demo('Assets', '/assets'),
 ];
