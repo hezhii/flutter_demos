@@ -4,8 +4,35 @@ import 'home.dart';
 import 'demos/navigation.dart';
 import 'demos/assets.dart';
 
-final routes = <String, WidgetBuilder>{
-  '/': (BuildContext context) => new Home(),
-  '/navigation': (BuildContext context) => new ArticleListScreen(),
-  '/assets': (BuildContext context) => new Assets(),
-};
+final List<Map> routeConfig = [
+  {
+    'name': 'Home',
+    'path': '/',
+    'builder': (BuildContext context) => new Home()
+  },
+  {
+    'name': 'Navigation',
+    'path': '/navigation',
+    'builder': (BuildContext context) => new ArticleListScreen()
+  },
+  {
+    'name': 'Assets',
+    'path': '/assets',
+    'builder': (BuildContext context) => new Assets()
+  },
+];
+
+class AppRoutes {
+  static Map<String, WidgetBuilder> getRoutes() {
+    Map<String, WidgetBuilder> map = {};
+
+    routeConfig.forEach((route) {
+      map[route['path']] = route['builder'];
+    });
+    return map;
+  }
+
+  static Iterable<Map> getDemos() {
+    return routeConfig.where((route) => route['name'] != 'Home');
+  }
+}

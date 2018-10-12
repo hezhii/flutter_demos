@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demos',
       initialRoute: '/',
-      routes: routes,
+      routes: AppRoutes.getRoutes(),
     );
   }
 }

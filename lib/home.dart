@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'routes.dart';
+
+final demos = AppRoutes.getDemos();
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class Home extends StatelessWidget {
           crossAxisCount: 3,
           mainAxisSpacing: 1.0,
           crossAxisSpacing: 1.0,
-          children: demos.map((Demo demo) {
+          children: demos.map((demo) {
             return _getWidget(demo, context);
           }).toList(),
         ),
@@ -23,10 +27,10 @@ class Home extends StatelessWidget {
     );
   }
 
-  Widget _getWidget(Demo demo, BuildContext context) {
+  Widget _getWidget(Map demo, BuildContext context) {
     return new GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, demo.path);
+        Navigator.pushNamed(context, demo['path']);
       },
       child: new Container(
         decoration: new BoxDecoration(
@@ -34,7 +38,7 @@ class Home extends StatelessWidget {
         ),
         alignment: Alignment.center,
         child: new Text(
-          demo.name,
+          demo['name'],
           style: new TextStyle(
             fontSize: 18.0,
             fontWeight: FontWeight.w500,
@@ -44,15 +48,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-class Demo {
-  final String name;
-  final String path;
-
-  const Demo(this.name, this.path);
-}
-
-const List<Demo> demos = const <Demo>[
-  const Demo('Navigation', '/navigation'),
-  const Demo('Assets', '/assets'),
-];
