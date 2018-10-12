@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'demos/navigation.dart';
 import 'demos/assets.dart';
+import 'demos/layouts.dart';
 
 final List<Map> routeConfig = [
   {
@@ -20,6 +21,11 @@ final List<Map> routeConfig = [
     'path': '/assets',
     'builder': (BuildContext context) => new Assets()
   },
+  {
+    'name': 'Layouts',
+    'path': '/layouts',
+    'builder': (BuildContext context) => new Layouts()
+  }
 ];
 
 class AppRoutes {

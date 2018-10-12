@@ -40,6 +40,7 @@ flutter:
   assets:
     - assets/person.json
     - assets/images/wechat.png
+    - assets/images/lake.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
