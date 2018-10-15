@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'demos/navigation.dart';
 import 'demos/assets.dart';
-import 'demos/layouts.dart';
+import 'demos/layouts/overview.dart';
 
 final List<Map> routeConfig = [
   {

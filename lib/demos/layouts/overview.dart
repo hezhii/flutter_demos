@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'layout_widgets.dart';
+
 class Layouts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -82,6 +84,20 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Layouts'),
+        actions: <Widget>[
+          new IconButton(
+            icon: new Icon(Icons.more_horiz),
+            color: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                  builder: (context) => new LayoutWidgets(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: new ListView(
         children: <Widget>[
