@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'container.dart';
+import 'padding_demo.dart';
 import 'row_column.dart';
 import 'expanded_demo.dart';
 import 'page_view_demo.dart';
@@ -41,6 +42,7 @@ class LayoutWidgetDemo {
 
 List<LayoutWidgetDemo> demos = <LayoutWidgetDemo>[
   new LayoutWidgetDemo(name: 'Container', widget: new ContainerDemo()),
+  new LayoutWidgetDemo(name: 'Padding', widget: new PaddingDemo()),
   new LayoutWidgetDemo(name: 'Row/Column', widget: new RowColumn()),
   new LayoutWidgetDemo(name: 'Expanded', widget: new ExpandedDemo()),
   new LayoutWidgetDemo(name: 'PageView', widget: new PageViewDemo()),
